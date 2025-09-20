@@ -7,7 +7,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96da80c-53c1-4fa0-b1b4-8f372cee1585" name="Changes" comment="" />
+    <list default="true" id="d96da80c-53c1-4fa0-b1b4-8f372cee1585" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Security/CharacterRequiredAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Security/CharacterRequiredAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Services/CurrentUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Services/CurrentUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,8 +30,20 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "MonoDevPro"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/MonoDevPro/GameAPI.git",
+    "accountId": "8ccdc877-4e3a-4c12-bdbb-61d63caf0454"
+  }
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b7856b364e04283a10bb924825b197f28f228/f8/8c900c34/OwnedNavigationBuilder`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/298f3b59620d4c53aa65c82c185762f715800/d4/7c7ef8f8/IAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -35,6 +60,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9d589990b96cd4c4e23b1931e2459301078a39fe5ab42ee3782761988d32/MapperConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a3a2943740096e0fc472456147a4ca9c22db1be62257205bbba9f0e648c0/DatabaseFacade.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e096e6f12c5d6b49356bc34ff1ea08738f910c0929c9d717c9cba7f44288/EntityFrameworkQueryableExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/infra/abbreviations.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Models/CharacterLookup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Security/CharacterRequiredAttribute.cs" root0="FORCE_HIGHLIGHTING" />
@@ -95,8 +125,25 @@
       <updated>1758301751108</updated>
       <workItem from="1758301752522" duration="94000" />
       <workItem from="1758301860039" duration="25817000" />
-      <workItem from="1758332586339" duration="1288000" />
+      <workItem from="1758332586339" duration="6347000" />
     </task>
+    <task id="LOCAL-00001" summary="add .gitignore file for Visual Studio and related tools">
+      <option name="closed" value="true" />
+      <created>1758334115682</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1758334115682</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initialize project structure and add initial domain models and configurations">
+      <option name="closed" value="true" />
+      <created>1758334168168</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758334168168</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,8 +151,47 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="12ff00ba-fa06-44ef-ba95-2e458b8594b3" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="12ff00ba-fa06-44ef-ba95-2e458b8594b3">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/home/filipe/GameAPI/src/Application" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="add .gitignore file for Visual Studio and related tools" />
+    <MESSAGE value="initialize project structure and add initial domain models and configurations" />
+    <option name="LAST_COMMIT_MESSAGE" value="initialize project structure and add initial domain models and configurations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

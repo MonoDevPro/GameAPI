@@ -6,6 +6,117 @@
     "version": "1.0.0"
   },
   "paths": {
+    "/api/Characters": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "operationId": "PostApiCharacters",
+        "requestBody": {
+          "x-name": "cmd",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCharacterCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/Characters/{id}/select": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "operationId": "PostApiCharactersSelect",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/Characters/{id}": {
+      "delete": {
+        "tags": [
+          "Characters"
+        ],
+        "operationId": "DeleteApiCharacters",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "operationId": "GetApiCharacters",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/Characters/me": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "operationId": "GetApiCharactersMe",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/api/Users/register": {
       "post": {
         "tags": [
@@ -403,6 +514,51 @@
   },
   "components": {
     "schemas": {
+      "CreateCharacterCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "vocation": {
+            "$ref": "#/components/schemas/Vocation"
+          }
+        }
+      },
+      "Gender": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "None",
+          "Male",
+          "Female"
+        ],
+        "enum": [
+          0,
+          1,
+          2
+        ]
+      },
+      "Vocation": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Warrior",
+          "Mage",
+          "Archer",
+          "None"
+        ],
+        "enum": [
+          0,
+          1,
+          2,
+          -1
+        ]
+      },
       "HttpValidationProblemDetails": {
         "allOf": [
           {

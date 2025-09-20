@@ -3,10 +3,11 @@ using GameWeb.Domain.Enums;
 namespace GameWeb.Application.Common.Security;
 
 /// <summary>
-/// Atributo base para todos os requisitos de validação de personagem.
+/// Indica que a execução do request exige um personagem atualmente selecionado.
+/// Caso <see cref="AllowNotOwner"/> seja true, permite que o personagem validado não pertença ao usuário (cenário PvP / espectador futuro).
 /// </summary>
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-public abstract class CharacterRequiredAttribute : Attribute
+[AttributeUsage(AttributeTargets.Class)]
+public sealed class CharacterRequiredAttribute : Attribute
 {
-    public bool AllowNotOwner { get; set; } = false;
+    public bool AllowNotOwner { get; init; } = false;
 }

@@ -15,5 +15,14 @@ public class CurrentUser : IUser
 
     public string? Id => _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
     public List<string>? Roles => _httpContextAccessor.HttpContext?.User?.FindAll(ClaimTypes.Role).Select(x => x.Value).ToList();
+    public int? CharacterId
+    {
+        get
+        {
+            var value = _httpContextAccessor.HttpContext?.User?.FindFirstValue("character_id");
+            if (int.TryParse(value, out var cid)) return cid;
+            return null;
+        }
+    }
 
 }

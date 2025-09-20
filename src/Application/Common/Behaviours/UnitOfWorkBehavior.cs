@@ -9,7 +9,7 @@ namespace GameWeb.Application.Common.Behaviours;
 /// <typeparam name="TRequest"></typeparam>
 /// <typeparam name="TResponse"></typeparam>
 public class UnitOfWorkBehavior<TRequest, TResponse>(
-    IUnitOfWork unitOfWork, 
+    IUnitOfWork unitOfWork,
     ILogger<UnitOfWorkBehavior<TRequest, TResponse>> logger
     ) : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
 {
@@ -18,14 +18,15 @@ public class UnitOfWorkBehavior<TRequest, TResponse>(
         RequestHandlerDelegate<TResponse> next,
         CancellationToken ct)
     {
-        // Executa o handler
+        var isCommand = request is ICommand || request is ICommand<TResponse>;
         var response = await next();
+        if (!isCommand)
+        {
+            return response; // Não persiste para queries
+        }
 
-        // Persiste alterações após a execução
         var result = await unitOfWork.SaveChangesAsync(ct);
-        
-        logger.LogInformation("Save changes for request {RequestType} HasSaves: {Saves}", typeof(TRequest).Name, result);
-        
+        logger.LogInformation("Save changes for command {RequestType} HasSaves: {Saves}", typeof(TRequest).Name, result);
         return response;
     }
 }
