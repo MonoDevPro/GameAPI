@@ -67,7 +67,7 @@ public class ApplicationDbContextInitialiser
     {
         // Default roles
         var administratorRole = new IdentityRole(Roles.Administrator);
-        var playerRole = new IdentityRole(Roles.Player);
+        var playerRole = new IdentityRole(Roles.User);
 
         if (_roleManager.Roles.All(r => r.Name != administratorRole.Name))
         {

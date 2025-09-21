@@ -13,7 +13,7 @@
         ],
         "operationId": "PostApiCharacters",
         "requestBody": {
-          "x-name": "cmd",
+          "x-name": "command",
           "content": {
             "application/json": {
               "schema": {
@@ -547,16 +547,16 @@
         "type": "integer",
         "description": "",
         "x-enumNames": [
+          "None",
           "Warrior",
           "Mage",
-          "Archer",
-          "None"
+          "Archer"
         ],
         "enum": [
           0,
           1,
           2,
-          -1
+          3
         ]
       },
       "HttpValidationProblemDetails": {

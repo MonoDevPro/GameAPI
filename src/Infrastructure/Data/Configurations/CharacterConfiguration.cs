@@ -1,6 +1,5 @@
 using GameWeb.Domain.Entities;
 using GameWeb.Domain.ValueObjects;
-using GameWeb.Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,30 +9,32 @@ public class CharacterConfiguration : IEntityTypeConfiguration<Character>
 {
     public void Configure(EntityTypeBuilder<Character> builder)
     {
+        builder.HasQueryFilter(c => c.IsActive);
+        
         // Configura propriedades, como o tamanho máximo do nome
         builder.Property(c => c.Name)
-            .HasMaxLength(50)
+            .HasConversion(v => v.Value, v => CharacterName.Create(v))
+            .HasMaxLength(20)
             .IsRequired();
-
-        // Configura o relacionamento de posse
-        builder.HasOne<ApplicationUser>()
-            .WithMany(u => u.Characters)
-            .HasForeignKey(c => c.OwnerId)
-            .IsRequired()
-            .OnDelete(DeleteBehavior.Cascade);
         
-        builder.HasIndex(c => c.Name).IsUnique();
+        // Garante que o nome seja único
+        builder.HasIndex(c => c.Id, "IX_Character_Id").IsUnique();
+        builder.HasIndex(c => c.Name, "IX_Character_Name").IsUnique();
         
         // Configura propriedades complexas como Value Objects
-        builder.Property(c => c.Position)
-            .HasConversion(
-                v => v.ToString(), // Converte para string para armazenar no banco
-                v => Vector2D.FromString(v)) // Converte de volta para Vector2D ao ler do banco
-            .IsRequired();
-        builder.Property(c => c.Direction)
-            .HasConversion(
-                v => v.ToString(),
-                v => Vector2D.FromString(v))
-            .IsRequired();
+        // Configura Position como um componente "owned"
+        builder.OwnsOne(c => c.Position, positionBuilder =>
+        {
+            // Mapeia as propriedades de Vector2D para colunas específicas
+            positionBuilder.Property(p => p.X).HasColumnName("PositionX");
+            positionBuilder.Property(p => p.Y).HasColumnName("PositionY");
+        });
+
+        // Configura Direction da mesma forma
+        builder.OwnsOne(c => c.Direction, directionBuilder =>
+        {
+            directionBuilder.Property(p => p.X).HasColumnName("DirectionX");
+            directionBuilder.Property(p => p.Y).HasColumnName("DirectionY");
+        });
     }
 }

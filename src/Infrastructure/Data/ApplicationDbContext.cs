@@ -15,6 +15,15 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        
+        // Configura o relacionamento de posse
+        builder.Entity<ApplicationUser>()
+            .HasMany(u => u.Characters)
+            .WithOne()
+            .HasForeignKey(c => c.OwnerId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+        
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }

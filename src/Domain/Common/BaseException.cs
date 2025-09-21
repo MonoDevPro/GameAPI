@@ -1,20 +1,32 @@
-﻿namespace GameWeb.Domain.Common;
+﻿using System.Collections.ObjectModel;
 
-public class BaseException : Exception
+namespace GameWeb.Domain.Common;
+
+public abstract class DomainException : Exception
 {
-    private readonly Exception? _innerException;
-    
-    public BaseException(string message) : base(message)
+    public string Code { get; }
+    public DateTimeOffset OccurredOn { get; }
+    public IReadOnlyDictionary<string, object>? Metadata { get; }
+
+    protected DomainException(string message, string code = "domain.error", IDictionary<string, object>? metadata = null)
+        : base(message)
     {
-    }
-    
-    public BaseException(string message, Exception innerException) : base(message, innerException)
-    {
-        _innerException = innerException;
+        Code = code ?? throw new ArgumentNullException(nameof(code));
+        OccurredOn = DateTimeOffset.UtcNow;
+        Metadata = metadata is null ? null : new ReadOnlyDictionary<string, object>(new Dictionary<string, object>(metadata));
     }
 
-    public override Exception GetBaseException()
+    protected DomainException(string message, Exception innerException, string code = "domain.error", IDictionary<string, object>? metadata = null)
+        : base(message, innerException)
     {
-        return _innerException?.GetBaseException() ?? this;
+        Code = code ?? throw new ArgumentNullException(nameof(code));
+        OccurredOn = DateTimeOffset.UtcNow;
+        Metadata = metadata is null ? null : new ReadOnlyDictionary<string, object>(new Dictionary<string, object>(metadata));
+    }
+
+    public override string ToString()
+    {
+        var meta = Metadata is null ? string.Empty : $" | metadata: {string.Join(", ", Metadata.Select(kv => $"{kv.Key}={kv.Value}"))}";
+        return $"{GetType().FullName}: {Message} | code: {Code} | occurredOn: {OccurredOn:o}{meta}";
     }
 }

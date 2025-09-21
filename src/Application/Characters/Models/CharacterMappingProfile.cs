@@ -9,7 +9,7 @@ public class CharacterMappingProfile : Profile
     {
         CreateMap<Character, CharacterDto>()
             .ForCtorParam("Id", opt => opt.MapFrom(src => src.Id))
-            .ForCtorParam("Name", opt => opt.MapFrom(src => src.Name))
+            .ForCtorParam("Name", opt => opt.MapFrom(src => src.Name.Value))
             .ForCtorParam("Gender", opt => opt.MapFrom(src => src.Gender.ToString()))
             .ForCtorParam("Vocation", opt => opt.MapFrom(src => src.Vocation.ToString()))
             .ForCtorParam("IsActive", opt => opt.MapFrom(src => src.IsActive))

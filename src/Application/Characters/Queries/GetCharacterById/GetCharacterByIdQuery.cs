@@ -14,28 +14,18 @@ public class GetCharacterByIdQueryValidator : AbstractValidator<GetCharacterById
     }
 }
 
-public class GetCharacterByIdQueryHandler : IRequestHandler<GetCharacterByIdQuery, CharacterDto>
+public class GetCharacterByIdQueryHandler(IApplicationDbContext db, IUser user, IMapper mapper)
+    : IRequestHandler<GetCharacterByIdQuery, CharacterDto>
 {
-    private readonly IApplicationDbContext _db;
-    private readonly IUser _user;
-    private readonly IMapper _mapper;
-
-    public GetCharacterByIdQueryHandler(IApplicationDbContext db, IUser user, IMapper mapper)
-    {
-        _db = db;
-        _user = user;
-        _mapper = mapper;
-    }
-
     public async Task<CharacterDto> Handle(GetCharacterByIdQuery request, CancellationToken cancellationToken)
     {
-        if (_user.Id is null)
+        if (user.Id is null)
             throw new UnauthorizedAccessException();
 
-        var character = await _db.Characters.FirstOrDefaultAsync(c => c.Id == request.Id && c.OwnerId == _user.Id, cancellationToken);
+        var character = await db.Characters.FirstOrDefaultAsync(c => c.Id == request.Id && c.OwnerId == user.Id, cancellationToken);
         if (character is null)
             throw new NotFoundException(nameof(Character), request.Id.ToString());
 
-        return _mapper.Map<CharacterDto>(character);
+        return mapper.Map<CharacterDto>(character);
     }
 }

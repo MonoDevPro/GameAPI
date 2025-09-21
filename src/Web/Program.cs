@@ -1,5 +1,7 @@
 using GameWeb.Application;
+using GameWeb.Infrastructure;
 using GameWeb.Infrastructure.Data;
+using GameWeb.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,4 +43,7 @@ app.MapEndpoints();
 
 app.Run();
 
-public partial class Program { }
+namespace GameWeb.Web
+{
+    public partial class Program { }
+}

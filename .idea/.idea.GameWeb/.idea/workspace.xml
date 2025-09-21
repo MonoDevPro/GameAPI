@@ -8,18 +8,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d96da80c-53c1-4fa0-b1b4-8f372cee1585" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Application/Characters/EventHandlers/CharacterCreatedEventHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Exceptions/ValidationException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/ValueObjects/CharacterName.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Models/CharacterMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Models/CharacterMappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetCharacterById/GetCharacterByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetCharacterById/GetCharacterByIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/AuthorizationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/AuthorizationBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/LoggingBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/LoggingBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/PerformanceBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/PerformanceBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/ValidationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/ValidationBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Exceptions/NoCharacterSelectedException.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Exceptions/ValidationException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Exceptions/ValidationException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/ICharacterClaimSetter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/ICurrentCharacterAccessor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Security/CharacterRequiredAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Security/CharacterRequiredAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/Messaging.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/Messaging.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Models/CharacterLookup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Security/CharacterRequiredAttribute.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Common/BaseException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Common/BaseException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Constants/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Constants/Roles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Domain.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Enums/Vocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Enums/Vocation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Configurations/CharacterConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/Configurations/CharacterConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Services/CharacterClaimSetter.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/Services/CurrentUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Services/CurrentUser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Application.FunctionalTests/CustomWebApplicationFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Application.FunctionalTests/CustomWebApplicationFactory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,46 +69,101 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MonoDevPro"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MonoDevPro&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/MonoDevPro/GameAPI.git",
-    "accountId": "8ccdc877-4e3a-4c12-bdbb-61d63caf0454"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/MonoDevPro/GameAPI.git&quot;,
+    &quot;accountId&quot;: &quot;8ccdc877-4e3a-4c12-bdbb-61d63caf0454&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b7856b364e04283a10bb924825b197f28f228/f8/8c900c34/OwnedNavigationBuilder`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/31dd75f465384ca3b8abd4021aa0448df200/e2/5e57386c/02000023pdb1.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b7856b364e04283a10bb924825b197f28f228/f8/8c900c34/OwnedNavigationBuilder`2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/265766e88b6f43a781953aa8785b2c7710800/73/39b44195/IdentityUser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/298f3b59620d4c53aa65c82c185762f715800/d4/7c7ef8f8/IAuthorizationService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2dbc5f71e2fa4693935bb9f0d010b27513c00/63/8a64f33d/ClaimTypes.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/398e6f9acc3a4600a8a7231eec2e38761daa00/a3/9e818be3/ApiBehaviorOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2dbc5f71e2fa4693935bb9f0d010b27513c00/22/a82fccf3/ClaimsIdentity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2dbc5f71e2fa4693935bb9f0d010b27513c00/63/8a64f33d/ClaimTypes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/398e6f9acc3a4600a8a7231eec2e38761daa00/a3/9e818be3/ApiBehaviorOptions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4773c8adbf2f4fa1a82b91e13959ea2d4b000/19/f5596b11/IResult.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5e5119a57fd14ce18148b7014c4dfec0cc600/83/2a88959b/Exception.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ee5eab998594a82802fa5805594c19b5200/31/0cf702ad/IAuthorizationService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7eecfd9a3c11456e89a9aa54739fe059d19c00/0a/d51895b8/UnauthorizedAccessException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7eecfd9a3c11456e89a9aa54739fe059d19c00/49/6e3789ed/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7eecfd9a3c11456e89a9aa54739fe059d19c00/53/d73e3cef/Exception.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7eecfd9a3c11456e89a9aa54739fe059d19c00/d4/ebb93af0/List`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c7310560a4534af0985c8f214923063ddc00/a5/c39c5fb7/AuthorizationEndpointConventionBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c7441101ceab4b6c8eee5f6332258dc86a800/21/e0488a9d/IUserEmailStore`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c7441101ceab4b6c8eee5f6332258dc86a800/82/63acc41a/UserManager`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c7441101ceab4b6c8eee5f6332258dc86a800/c1/08a31df9/IUserAuthenticatorKeyStore`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c7441101ceab4b6c8eee5f6332258dc86a800/cb/adad83a4/IdentityResult.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c7441101ceab4b6c8eee5f6332258dc86a800/cc/0bda6103/IUserClaimsPrincipalFactory`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c7441101ceab4b6c8eee5f6332258dc86a800/cc/0bda6103/IUserClaimsPrincipalFactory`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c7441101ceab4b6c8eee5f6332258dc86a800/f2/528ad896/IUserStore`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d5b47b9bdd6943638f8c249032e5b4f1da00/25/a1c06eee/Results.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d72c9aa0a2b14add8b8abfa8ee8616253b800/2f/bea3444e/Results.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3520bf5c151bbc5aed94ba6abea697eaaee2b96fe96341613fef02be1cc54/ValidationFailure.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4b21fc3f8a3abb5d25f06c622276fbec0fd3932f169cc6af520bf5abc6a46b4/DbSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57ef264888488357640f23a308ccecd818012805b7b56dd32bd469a819f56ee/IPipelineBehavior.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57f54b4f82b56a06d59c83a36fce97d6774c3ceda2b76c8d09ea472732769/EntityTypeBuilder`.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/805ac75e4a82dc96ff22a8664448bee88afafebcd76c035db874afa2752a049/IDbContextTransaction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8aca45508683a6169bab9e8bd96b7cda607d638cacfaa31173c8c278c45/ISender.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8b83e0e232c589373b88a5a02e651c7044d7c7bc9990b9d22a8f83c63761c/Extensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9161da3da671f777cc3652d39696c23db97793e37cb97fcb4e1e87234e56322/ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9d589990b96cd4c4e23b1931e2459301078a39fe5ab42ee3782761988d32/MapperConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a3a2943740096e0fc472456147a4ca9c22db1be62257205bbba9f0e648c0/DatabaseFacade.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e096e6f12c5d6b49356bc34ff1ea08738f910c0929c9d717c9cba7f44288/EntityFrameworkQueryableExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/infra/abbreviations.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Characters/EventHandlers/CharacterCreatedEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Common/Exceptions/ValidationException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Application/Common/Models/CharacterLookup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Application/Common/Security/CharacterRequiredAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Enums/Gender.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/Exceptions/ValidationException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Domain/ValueObjects/CharacterName.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/ValueObjects/CharacterStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/ValueObjects/Vector2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Infrastructure/Data/Configurations/CharacterConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Web/Infrastructure/CustomExceptionHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Web/Infrastructure/CustomExceptionHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Web/Infrastructure/CustomExceptionHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Web/Infrastructure/CustomExceptionHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Web/Infrastructure/CustomExceptionHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/filipe/GameAPI/src/Web/Infrastructure/CustomExceptionHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://DomainValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://DomainValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://DomainValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -88,6 +180,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -96,6 +189,11 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
 }]]></component>
   <component name="RunManager">
@@ -125,7 +223,8 @@
       <updated>1758301751108</updated>
       <workItem from="1758301752522" duration="94000" />
       <workItem from="1758301860039" duration="25817000" />
-      <workItem from="1758332586339" duration="6347000" />
+      <workItem from="1758332586339" duration="6402000" />
+      <workItem from="1758388839733" duration="27042000" />
     </task>
     <task id="LOCAL-00001" summary="add .gitignore file for Visual Studio and related tools">
       <option name="closed" value="true" />
@@ -143,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758334168168</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="implement character selection and validation logic">
+      <option name="closed" value="true" />
+      <created>1758344389568</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1758344389569</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +298,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="add .gitignore file for Visual Studio and related tools" />
     <MESSAGE value="initialize project structure and add initial domain models and configurations" />
-    <option name="LAST_COMMIT_MESSAGE" value="initialize project structure and add initial domain models and configurations" />
+    <MESSAGE value="implement character selection and validation logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement character selection and validation logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

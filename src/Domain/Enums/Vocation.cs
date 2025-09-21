@@ -5,20 +5,20 @@ namespace GameWeb.Domain.Enums;
 /// </summary>
 public enum Vocation : int
 {
-    None = -1,
+    None = 0,
     
     /// <summary>
     /// Warrior class - melee combat specialist
     /// </summary>
-    Warrior = 0,
+    Warrior = 1,
 
     /// <summary>
     /// Mage class - magic damage dealer
     /// </summary>
-    Mage = 1,
+    Mage = 2,
 
     /// <summary>
     /// Archer class - ranged physical damage dealer
     /// </summary>
-    Archer = 2
+    Archer = 3
 }

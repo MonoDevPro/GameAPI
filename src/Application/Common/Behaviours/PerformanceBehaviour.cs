@@ -41,9 +41,7 @@ public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequ
             var userName = string.Empty;
 
             if (!string.IsNullOrEmpty(userId))
-            {
-                userName = await _identityService.GetUserNameAsync(userId);
-            }
+                userName = await _identityService.GetUserNameAsync(userId, cancellationToken);
 
             _logger.LogWarning("GameWeb Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                 requestName, elapsedMilliseconds, userId, userName, request);

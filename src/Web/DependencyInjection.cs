@@ -3,11 +3,10 @@ using GameWeb.Application.Common.Interfaces;
 using GameWeb.Infrastructure.Data;
 using GameWeb.Web.Services;
 using Microsoft.AspNetCore.Mvc;
-
 using NSwag;
 using NSwag.Generation.Processors.Security;
 
-namespace Microsoft.Extensions.DependencyInjection;
+namespace GameWeb.Web;
 
 public static class DependencyInjection
 {
@@ -16,8 +15,6 @@ public static class DependencyInjection
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
     builder.Services.AddScoped<IUser, CurrentUser>();
-    builder.Services.AddScoped<ICharacterClaimSetter, CharacterClaimSetter>();
-    builder.Services.AddScoped<ICurrentCharacterAccessor, CharacterClaimSetter>();
 
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddHealthChecks()

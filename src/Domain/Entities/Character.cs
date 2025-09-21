@@ -6,7 +6,7 @@ public class Character : BaseAuditableEntity
 {
     // 2. Encapsulamento: Proteja as propriedades que não devem ser alteradas livremente.
     // Use 'private set' para que só possam ser modificadas de dentro da classe.
-    public string Name { get; private set; }
+    public CharacterName Name { get; private set; }
     public Gender Gender { get; private set; }
     public Vocation Vocation { get; private set; }
 
@@ -24,7 +24,7 @@ public class Character : BaseAuditableEntity
     // 4. Construtor: Garanta que um personagem SEMPRE seja criado em um estado válido.
     // Isso força a criação de um personagem com os dados mínimos necessários.
     private Character(
-        string name, 
+        CharacterName name, 
         Gender gender, 
         Vocation vocation, 
         string ownerId,
@@ -32,12 +32,6 @@ public class Character : BaseAuditableEntity
         Vector2D position,
         Vector2D direction)
     {
-        // Validação de regras de negócio (invariantes)
-        if (string.IsNullOrWhiteSpace(name))
-        {
-            throw new ArgumentException("Character name cannot be empty.", nameof(name));
-        }
-
         Name = name;
         Gender = gender;
         Vocation = vocation;
@@ -49,7 +43,7 @@ public class Character : BaseAuditableEntity
 
     // 5. Factory Method (Método de Fábrica): Uma forma limpa de instanciar.
     // Aqui você pode definir os valores iniciais baseados na vocação, por exemplo.
-    public static Character CreateNew(string name, Gender gender, Vocation vocation, string ownerId)
+    public static Character CreateNew(CharacterName name, Gender gender, Vocation vocation, string ownerId)
     {
         // Lógica para definir stats iniciais baseados na vocação
         var initialStats = vocation switch

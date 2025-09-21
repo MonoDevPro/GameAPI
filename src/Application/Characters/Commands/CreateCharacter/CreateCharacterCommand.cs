@@ -2,6 +2,7 @@ using GameWeb.Application.Characters.Models;
 using GameWeb.Application.Common.Interfaces;
 using GameWeb.Domain.Entities;
 using GameWeb.Domain.Enums;
+using GameWeb.Domain.ValueObjects;
 
 namespace GameWeb.Application.Characters.Commands.CreateCharacter;
 
@@ -13,45 +14,36 @@ public class CreateCharacterCommandValidator : AbstractValidator<CreateCharacter
     {
         RuleFor(x => x.Name)
             .NotEmpty()
-            .MaximumLength(50);
+            .MinimumLength(3)
+            .MaximumLength(20);
+        
+        RuleFor(x => x.Gender)
+            .IsInEnum()
+            .NotEqual(Gender.None);
+        
+        RuleFor(x => x.Vocation)
+            .IsInEnum()
+            .NotEqual(Vocation.None);
     }
 }
 
-public class CreateCharacterCommandHandler : IRequestHandler<CreateCharacterCommand, CharacterDto>
+public class CreateCharacterCommandHandler(IApplicationDbContext db, IUser user, IMapper mapper)
+    : IRequestHandler<CreateCharacterCommand, CharacterDto>
 {
-    private readonly IApplicationDbContext _db;
-    private readonly IUser _user;
-    private readonly IMapper _mapper;
-
-    public CreateCharacterCommandHandler(IApplicationDbContext db, IUser user, IMapper mapper)
-    {
-        _db = db;
-        _user = user;
-        _mapper = mapper;
-    }
-
     public async Task<CharacterDto> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
     {
-        if (_user.Id is null)
+        if (user.Id is null)
             throw new UnauthorizedAccessException();
 
         // Garantir nome único
-        var exists = await _db.Characters.AnyAsync(c => c.Name == request.Name, cancellationToken);
+        var exists = await db.Characters.AnyAsync(c => c.Name == request.Name, cancellationToken);
         if (exists)
-            throw new ValidationException(new []{ new FluentValidation.Results.ValidationFailure(nameof(request.Name), "Character name already exists.")});
+            throw new ValidationException([new FluentValidation.Results.ValidationFailure(nameof(request.Name), "Character name already exists.")
+            ]);
 
-        var character = Character.CreateNew(request.Name, request.Gender, request.Vocation, _user.Id);
+        var character = Character.CreateNew((CharacterName)request.Name, request.Gender, request.Vocation, user.Id);
+        db.Characters.Add(character);
 
-        // Se não há nenhum selecionado ainda para esse usuário, seleciona este
-        var alreadySelected = await _db.Characters.AnyAsync(c => c.OwnerId == _user.Id && c.IsSelected, cancellationToken);
-        if (!alreadySelected)
-        {
-            character.Select();
-        }
-
-        _db.Characters.Add(character);
-        await _db.SaveChangesAsync(cancellationToken);
-
-        return _mapper.Map<CharacterDto>(character);
+        return mapper.Map<CharacterDto>(character);
     }
 }

@@ -1,4 +1,6 @@
 using GameWeb.Application.Common.Interfaces;
+using GameWeb.Application.Common.Security;
+using GameWeb.Domain.Constants;
 using GameWeb.Domain.Entities;
 
 namespace GameWeb.Application.Characters.Commands.DeleteCharacter;
@@ -13,29 +15,25 @@ public class DeleteCharacterCommandValidator : AbstractValidator<DeleteCharacter
     }
 }
 
-public class DeleteCharacterCommandHandler : IRequestHandler<DeleteCharacterCommand, Unit>
+public class DeleteCharacterCommandHandler(IApplicationDbContext db, IUser user)
+    : IRequestHandler<DeleteCharacterCommand, Unit>
 {
-    private readonly IApplicationDbContext _db;
-    private readonly IUser _user;
-
-    public DeleteCharacterCommandHandler(IApplicationDbContext db, IUser user)
-    {
-        _db = db;
-        _user = user;
-    }
-
     public async Task<Unit> Handle(DeleteCharacterCommand request, CancellationToken cancellationToken)
     {
-        if (_user.Id is null)
+        if (user.Id is null)
             throw new UnauthorizedAccessException();
+        
+        var ownerIsAdmin = user.Roles?.Contains(Roles.Administrator) ?? false;
 
-        var character = await _db.Characters.FirstOrDefaultAsync(c => c.Id == request.CharacterId && c.OwnerId == _user.Id, cancellationToken);
+        var character = await db.Characters.FirstOrDefaultAsync(
+            c => c.Id == request.CharacterId && (c.OwnerId == user.Id || ownerIsAdmin),
+            cancellationToken);
+        
         if (character is null)
             throw new NotFoundException(nameof(Character), request.CharacterId.ToString());
 
         character.Deactivate();
         character.Deselect();
-        await _db.SaveChangesAsync(cancellationToken);
 
         return Unit.Value;
     }
