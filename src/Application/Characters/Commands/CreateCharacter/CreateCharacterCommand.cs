@@ -10,12 +10,19 @@ public record CreateCharacterCommand(string Name, Gender Gender, Vocation Vocati
 
 public class CreateCharacterCommandValidator : AbstractValidator<CreateCharacterCommand>
 {
-    public CreateCharacterCommandValidator()
+    private readonly IApplicationDbContext _db;
+
+    public CreateCharacterCommandValidator(IApplicationDbContext db)
     {
+        _db = db;
+
         RuleFor(x => x.Name)
             .NotEmpty()
             .MinimumLength(3)
-            .MaximumLength(20);
+            .MaximumLength(20)
+            // A validação assíncrona é encadeada aqui
+            .MustAsync(BeUniqueName)
+            .WithMessage("Character name already exists.");
         
         RuleFor(x => x.Gender)
             .IsInEnum()
@@ -25,25 +32,33 @@ public class CreateCharacterCommandValidator : AbstractValidator<CreateCharacter
             .IsInEnum()
             .NotEqual(Vocation.None);
     }
+
+    /// <summary>
+    /// Verifica no banco de dados se o nome do personagem já está em uso.
+    /// </summary>
+    /// <param name="name">O nome do personagem a ser verificado.</param>
+    /// <param name="cancellationToken">O token de cancelamento.</param>
+    /// <returns>Retorna 'true' se o nome for único, e 'false' caso contrário.</returns>
+    private async Task<bool> BeUniqueName(string name, CancellationToken cancellationToken)
+    {
+        // A lógica correta é verificar se NÃO existe NENHUM personagem com este nome.
+        // Comparamos o `name` (string) com a propriedade `Value` do Value Object `CharacterName`.
+        return !await _db.Characters
+            .AnyAsync(c => c.Name == name, cancellationToken);
+    }
 }
 
 public class CreateCharacterCommandHandler(IApplicationDbContext db, IUser user, IMapper mapper)
     : IRequestHandler<CreateCharacterCommand, CharacterDto>
 {
-    public async Task<CharacterDto> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
+    public Task<CharacterDto> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
     {
         if (user.Id is null)
             throw new UnauthorizedAccessException();
 
-        // Garantir nome único
-        var exists = await db.Characters.AnyAsync(c => c.Name == request.Name, cancellationToken);
-        if (exists)
-            throw new ValidationException([new FluentValidation.Results.ValidationFailure(nameof(request.Name), "Character name already exists.")
-            ]);
-
         var character = Character.CreateNew((CharacterName)request.Name, request.Gender, request.Vocation, user.Id);
         db.Characters.Add(character);
 
-        return mapper.Map<CharacterDto>(character);
+        return Task.FromResult(mapper.Map<CharacterDto>(character));
     }
 }

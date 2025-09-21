@@ -8,55 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d96da80c-53c1-4fa0-b1b4-8f372cee1585" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Application/Characters/EventHandlers/CharacterCreatedEventHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/Exceptions/ValidationException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/ValueObjects/CharacterName.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Models/CharacterMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Models/CharacterMappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetCharacterById/GetCharacterByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetCharacterById/GetCharacterByIdQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/AuthorizationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/AuthorizationBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/CharacterValidationBehaviour.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/LoggingBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/LoggingBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/PerformanceBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/PerformanceBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/ValidationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/ValidationBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Exceptions/NoCharacterSelectedException.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Exceptions/ValidationException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Exceptions/ValidationException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/ICharacterClaimSetter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/ICurrentCharacterAccessor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/Messaging.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/Messaging.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Models/CharacterLookup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Security/CharacterRequiredAttribute.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Common/BaseException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Common/BaseException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Constants/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Constants/Roles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Enums/Vocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Enums/Vocation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Configurations/CharacterConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/Configurations/CharacterConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Services/CharacterClaimSetter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Services/CurrentUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Services/CurrentUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Application.FunctionalTests/CustomWebApplicationFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Application.FunctionalTests/CustomWebApplicationFactory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +113,7 @@
     <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://NoCharacterSelectedException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
@@ -224,7 +177,7 @@
       <workItem from="1758301752522" duration="94000" />
       <workItem from="1758301860039" duration="25817000" />
       <workItem from="1758332586339" duration="6402000" />
-      <workItem from="1758388839733" duration="27042000" />
+      <workItem from="1758388839733" duration="28618000" />
     </task>
     <task id="LOCAL-00001" summary="add .gitignore file for Visual Studio and related tools">
       <option name="closed" value="true" />
@@ -250,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758344389569</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor character handling and validation logic; introduce CharacterName value object and update related classes">
+      <option name="closed" value="true" />
+      <created>1758417940453</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1758417940453</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +252,11 @@
             </State>
           </value>
         </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
@@ -299,7 +265,8 @@
     <MESSAGE value="add .gitignore file for Visual Studio and related tools" />
     <MESSAGE value="initialize project structure and add initial domain models and configurations" />
     <MESSAGE value="implement character selection and validation logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement character selection and validation logic" />
+    <MESSAGE value="refactor character handling and validation logic; introduce CharacterName value object and update related classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor character handling and validation logic; introduce CharacterName value object and update related classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
