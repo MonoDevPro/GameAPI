@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GameWeb.Infrastructure.Data;
 
-public class EfSpecificationRepository<T>(ApplicationDbContext context, IMapper mapper) : ISpecificationRepository<T>
+public class EfRepository<T>(ApplicationDbContext context, IMapper mapper) : IRepository<T>
     where T : BaseEntity
 {
     // --- Helpers ---------------------------------------------------------
@@ -119,6 +119,13 @@ public class EfSpecificationRepository<T>(ApplicationDbContext context, IMapper 
 
         return await projected.ToListAsync(cancellationToken);
     }
+    
+    // --- IMPLEMENTAÇÃO DO NOVO MÉTODO ---
+    public async Task<bool> AnyAsync(ISpecification<T> spec, CancellationToken cancellationToken = default)
+    {
+        // Reutilizamos a query de contagem otimizada para a verificação de existência.
+        return await ApplySpecificationForCount(spec).AnyAsync(cancellationToken);
+    }
 
     // --- Paginated methods -----------------------------------------------
 
@@ -170,5 +177,20 @@ public class EfSpecificationRepository<T>(ApplicationDbContext context, IMapper 
         var usedPageSize   = spec.IsPagingEnabled ? (spec.Take ?? pageSize) : pageSize;
 
         return new PaginatedList<TResult>(items, totalCount, usedPageNumber, usedPageSize);
+    }
+    
+    public void Add(T entity)
+    {
+        context.Set<T>().Add(entity);
+    }
+
+    public void Update(T entity)
+    {
+        context.Set<T>().Update(entity);
+    }
+
+    public void Delete(T entity)
+    {
+        context.Set<T>().Remove(entity);
     }
 }

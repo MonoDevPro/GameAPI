@@ -1,25 +1,37 @@
+using GameWeb.Application.Characters.Specifications;
 using GameWeb.Application.Common.Interfaces;
 using GameWeb.Application.Common.Security;
 using GameWeb.Domain.Constants;
+using GameWeb.Domain.Entities;
 
 namespace GameWeb.Application.Characters.Commands.Admin;
 
-[Authorize(Roles = Roles.Administrator )]
+[Authorize(Roles = Roles.Administrator)]
+[Authorize(Policy = Policies.CanPurge)] // Pode adicionar autorização por política também
 public record PurgeCharactersCommand() : ICommand<int>;
 
-public class PurgeCharactersCommandHandler(IApplicationDbContext db)
+public class PurgeCharactersCommandHandler(IRepository<Character> characterRepo)
     : IRequestHandler<PurgeCharactersCommand, int>
 {
     public async Task<int> Handle(PurgeCharactersCommand request, CancellationToken cancellationToken)
     {
-        var character = await db.Characters.IgnoreQueryFilters().ToListAsync(cancellationToken);
-        var count = 0;
-        foreach (var c in character)
+        // 1. Usa a especificação para obter a lista de personagens a serem removidos.
+        var spec = new InactiveCharactersForPurgeSpec();
+        var inactiveCharacters = await characterRepo.ListBySpecAsync(spec, cancellationToken);
+
+        if (!inactiveCharacters.Any())
         {
-            if (c.IsActive) continue;
-            db.Characters.Remove(c);
-            count++;
+            return 0; // Nenhum personagem para remover.
         }
-        return count;
+        
+        // 2. Itera sobre a lista e marca cada um para ser apagado.
+        foreach (var character in inactiveCharacters)
+        {
+            characterRepo.Delete(character);
+        }
+
+        // O UnitOfWorkBehavior irá comitar a transação e apagar todos os registos.
+        // Retorna a contagem de personagens que foram removidos.
+        return inactiveCharacters.Count;
     }
 }

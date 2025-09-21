@@ -1,20 +1,20 @@
 using GameWeb.Application.Characters.Models;
+using GameWeb.Application.Characters.Specifications;
 using GameWeb.Application.Common.Interfaces;
-using GameWeb.Application.Common.Mappings;
+using GameWeb.Domain.Entities;
 
 namespace GameWeb.Application.Characters.Queries.GetMyCharacters;
 
 public record GetMyCharactersQuery : IQuery<List<CharacterDto>>;
 
-public class GetMyCharactersQueryHandler(IApplicationDbContext db, IUser user, IMapper mapper)
+public class GetMyCharactersQueryHandler(
+    IRepository<Character> characterRepo, 
+    IUser user)
     : IRequestHandler<GetMyCharactersQuery, List<CharacterDto>>
 {
     public async Task<List<CharacterDto>> Handle(GetMyCharactersQuery request, CancellationToken cancellationToken)
     {
-        var characters = await db.Characters
-            .Where(c => c.OwnerId == user.Id)
-            .ProjectToListAsync<CharacterDto>(mapper, cancellationToken);
-
-        return characters;
+        var spec = new CharactersByOwnerSpec(user.Id!);
+        return await characterRepo.ListBySpecAsync<CharacterDto>(spec, cancellationToken);
     }
 }

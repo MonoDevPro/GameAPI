@@ -8,33 +8,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d96da80c-53c1-4fa0-b1b4-8f372cee1585" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/Admin/PurgeCharactersCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/Admin/GetAllCharactersQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/BaseSpecification.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/ISpecification.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/ISpecificationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Data/EfSpecificationRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Web/Endpoints/UserManagement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Characters/Specifications/AllCharactersAdminSpec.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Characters/Specifications/CharacterByIdSpec.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Characters/Specifications/CharacterByNameSpec.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Characters/Specifications/CharacterForSelectionSpec.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Characters/Specifications/CharactersByOwnerSpec.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Characters/Specifications/DeletableCharacterSpec.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Characters/Specifications/InactiveCharacterForPurgeSpec.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/Admin/PurgeCharactersCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/Admin/PurgeCharactersCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Models/CharacterDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Models/CharacterDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Models/CharacterMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Models/CharacterMappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/Admin/GetAllCharactersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/Admin/GetAllCharactersQuery.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetCharacterById/GetCharacterByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetCharacterById/GetCharacterByIdQuery.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Mappings/MappingExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Mappings/MappingExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Constants/Policies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Constants/Policies.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Entities/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Entities/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Events/CharacterEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Events/CharacterEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IApplicationDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/ISpecificationRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/Configurations/CharacterConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/Configurations/CharacterConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/EfSpecificationRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/EfRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Identity/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Identity/ApplicationUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +96,13 @@
     <setting file="file://$PROJECT_DIR$/infra/abbreviations.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Characters/Commands/Admin/PurgeCharactersCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Characters/EventHandlers/CharacterCreatedEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Characters/Specifications/AllCharactersAdminSpec.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Characters/Specifications/CharacterByIdSpec.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Characters/Specifications/CharacterByNameSpec.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Characters/Specifications/CharacterForSelectionSpec.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Characters/Specifications/CharactersByOwnerSpec.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Characters/Specifications/DeletableCharacterSpec.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Characters/Specifications/InactiveCharacterForPurgeSpec.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/CharacterValidationException.cs" root0="SKIP_HIGHLIGHTING" />
@@ -122,8 +122,8 @@
     <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/GameAPI/src/Application/Common/Exceptions/ValidationException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Interfaces/BaseSpecification.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Common/Interfaces/IRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Interfaces/ISpecification.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Application/Common/Interfaces/ISpecificationRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/GameAPI/src/Domain/Entities/Character.cs" root0="SKIP_HIGHLIGHTING" />
@@ -142,7 +142,7 @@
     <setting file="file://$PROJECT_DIR$/src/Domain/ValueObjects/CharacterStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/ValueObjects/Vector2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Infrastructure/Data/Configurations/CharacterConfiguration.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Infrastructure/Data/EfSpecificationRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Infrastructure/Data/EfRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/GameAPI/src/Web/Endpoints/Characters.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/GameAPI/src/Web/Endpoints/Characters.cs" root0="SKIP_HIGHLIGHTING" />
@@ -253,7 +253,7 @@
       <workItem from="1758301752522" duration="94000" />
       <workItem from="1758301860039" duration="25817000" />
       <workItem from="1758332586339" duration="6402000" />
-      <workItem from="1758388839733" duration="49396000" />
+      <workItem from="1758388839733" duration="51752000" />
     </task>
     <task id="LOCAL-00001" summary="add .gitignore file for Visual Studio and related tools">
       <option name="closed" value="true" />
@@ -295,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758419507720</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor character commands and queries; implement active character management and enhance specifications">
+      <option name="closed" value="true" />
+      <created>1758482422177</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1758482422177</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +359,8 @@
     <MESSAGE value="implement character selection and validation logic" />
     <MESSAGE value="refactor character handling and validation logic; introduce CharacterName value object and update related classes" />
     <MESSAGE value="refactor CreateCharacterCommandValidator to include asynchronous uniqueness check for character names" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor CreateCharacterCommandValidator to include asynchronous uniqueness check for character names" />
+    <MESSAGE value="refactor character commands and queries; implement active character management and enhance specifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor character commands and queries; implement active character management and enhance specifications" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

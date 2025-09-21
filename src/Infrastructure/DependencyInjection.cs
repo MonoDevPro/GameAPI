@@ -28,10 +28,11 @@ public static class DependencyInjection
             options.UseSqlite(connectionString);
             options.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         });
+        
+        builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
         builder.Services.AddScoped<IUnitOfWork, EfUnitOfWork>();
 
-        builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
         builder.Services.AddScoped<ApplicationDbContextInitialiser>();
 

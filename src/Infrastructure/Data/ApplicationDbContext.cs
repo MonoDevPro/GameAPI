@@ -8,10 +8,8 @@ using Microsoft.EntityFrameworkCore;
 namespace GameWeb.Infrastructure.Data;
 
 public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-    : IdentityDbContext<ApplicationUser>(options), IApplicationDbContext
+    : IdentityDbContext<ApplicationUser>(options)
 {
-    public DbSet<Character> Characters => Set<Character>();
-    
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

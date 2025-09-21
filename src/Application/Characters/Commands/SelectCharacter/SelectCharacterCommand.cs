@@ -3,6 +3,7 @@ using GameWeb.Application.Characters.Models;
 using GameWeb.Domain.Entities;
 using FluentValidation; // Para a ValidationException
 using FluentValidation.Results;
+using GameWeb.Application.Characters.Specifications;
 using GameWeb.Application.Common.Mappings; // Para o ValidationFailure
 
 namespace GameWeb.Application.Characters.Commands.SelectCharacter;
@@ -11,49 +12,37 @@ public record SelectCharacterCommand(int CharacterId) : ICommand<CharacterDto>;
 
 public class SelectCharacterCommandValidator : AbstractValidator<SelectCharacterCommand>
 {
-    private readonly IApplicationDbContext _db;
-    private readonly IUser _user;
-    
-    public SelectCharacterCommandValidator(IApplicationDbContext db, IUser user)
+    public SelectCharacterCommandValidator(IRepository<Character> characterRepo, IUser user)
     {
-        if (user.Id is null)
-            throw new UnauthorizedAccessException();
-        
-        _db = db;
-        _user = user;
-        
         RuleFor(x => x.CharacterId)
             .GreaterThan(0)
-            .MustAsync(CharacterExists);
-    }
-    
-    private async Task<bool> CharacterExists(int characterId, CancellationToken cancellationToken)
-    {
-        return await _db.Characters.AnyAsync(c => 
-            c.Id == characterId 
-            && c.OwnerId == _user.Id, 
-            cancellationToken);
+            .MustAsync(async (id, cancellationToken) =>
+            {
+                var spec = new CharacterForSelectionSpec(id, user.Id!);
+                return await characterRepo.AnyAsync(spec, cancellationToken);
+            })
+            .WithMessage("Character not found, is inactive, or you don't have permission to select it.");
     }
 }
 
-// O Handler agora injeta IIdentityService
 public class SelectCharacterCommandHandler(
-    IApplicationDbContext db, 
-    IUser user, 
-    IIdentityService identityService, // Injeção do serviço de identidade
-    IMapper mapper)
+    IRepository<Character> characterRepo,
+    IUser user,
+    IIdentityService identityService)
     : IRequestHandler<SelectCharacterCommand, CharacterDto>
 {
     public async Task<CharacterDto> Handle(SelectCharacterCommand request, CancellationToken cancellationToken)
     {
+        // A validação já foi feita, agora executamos a ação.
         var setResult = await identityService.SetActiveCharacterAsync(user.Id!, request.CharacterId, cancellationToken);
         
         if (!setResult.Succeeded)
             throw new ApplicationException($"Failed to set active character: {string.Join(", ", setResult.Errors)}");
-        
-        return await db.Characters
-            .Where(c => c.Id == request.CharacterId)
-            .ProjectToFirstOrDefaultAsync<CharacterDto>(mapper, cancellationToken)
-            ?? throw new NotFoundException(nameof(Character), request.CharacterId.ToString());
+
+        // Retorna o DTO do personagem que foi selecionado.
+        var spec = new CharacterByIdSpec(request.CharacterId);
+        var characterDto = await characterRepo.GetBySpecAsync<CharacterDto>(spec, cancellationToken);
+
+        return characterDto ?? throw new NotFoundException(nameof(Character), request.CharacterId.ToString());
     }
 }
