@@ -11,14 +11,10 @@ public class GetMyCharactersQueryHandler(IApplicationDbContext db, IUser user, I
 {
     public async Task<List<CharacterDto>> Handle(GetMyCharactersQuery request, CancellationToken cancellationToken)
     {
-        if (user.Id is null)
-            throw new UnauthorizedAccessException();
-
-        return await db.Characters
+        var characters = await db.Characters
             .Where(c => c.OwnerId == user.Id)
-            .OrderByDescending(c => c.IsSelected)
-            .ThenBy(c => c.Name)
-            .AsQueryable()
-            .ProjectToListAsync<CharacterDto>(mapper.ConfigurationProvider, cancellationToken);
+            .ProjectToListAsync<CharacterDto>(mapper, cancellationToken);
+
+        return characters;
     }
 }

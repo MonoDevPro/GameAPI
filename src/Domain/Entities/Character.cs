@@ -1,5 +1,3 @@
-// 1. Renomeie para 'Character'. O sufixo 'Entity' é redundante na camada de domínio.
-
 namespace GameWeb.Domain.Entities;
 
 public class Character : BaseAuditableEntity
@@ -16,7 +14,6 @@ public class Character : BaseAuditableEntity
     public Vector2D Direction { get; private set; }
     
     // Indica se este personagem está atualmente selecionado pelo usuário (ativo na sessão de jogo)
-    public bool IsSelected { get; private set; }
     
     // Propriedades que precisam ser públicas para o EF Core mapear a chave estrangeira.
     public string OwnerId { get; private set; } = null!;
@@ -59,22 +56,6 @@ public class Character : BaseAuditableEntity
         var character = new Character(name, gender, vocation, ownerId, initialStats, initialPosition, initialDirection);
         character.AddDomainEvent(new CharacterCreatedEvent(character.Id));
         return character;
-    }
-
-    public void Select()
-    {
-        if (!IsActive)
-            throw new InvalidOperationException("Cannot select an inactive character.");
-        if (IsSelected) return;
-        IsSelected = true;
-        AddDomainEvent(new CharacterLoggedEvent(Id));
-    }
-
-    public void Deselect()
-    {
-        if (!IsSelected) return;
-        IsSelected = false;
-        AddDomainEvent(new CharacterLogoutEvent(Id));
     }
 
     public override void Deactivate()

@@ -12,8 +12,11 @@ public class CreateCharacterCommandValidator : AbstractValidator<CreateCharacter
 {
     private readonly IApplicationDbContext _db;
 
-    public CreateCharacterCommandValidator(IApplicationDbContext db)
+    public CreateCharacterCommandValidator(IApplicationDbContext db, IUser user)
     {
+        if (user.Id is null)
+            throw new UnauthorizedAccessException();
+        
         _db = db;
 
         RuleFor(x => x.Name)
@@ -53,12 +56,9 @@ public class CreateCharacterCommandHandler(IApplicationDbContext db, IUser user,
 {
     public Task<CharacterDto> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
     {
-        if (user.Id is null)
-            throw new UnauthorizedAccessException();
-
-        var character = Character.CreateNew((CharacterName)request.Name, request.Gender, request.Vocation, user.Id);
+        var character = Character.CreateNew((CharacterName)request.Name, request.Gender, request.Vocation, user.Id!);
         db.Characters.Add(character);
-
+        
         return Task.FromResult(mapper.Map<CharacterDto>(character));
     }
 }

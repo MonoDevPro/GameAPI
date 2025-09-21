@@ -1,4 +1,5 @@
 using GameWeb.Domain.Entities;
+using GameWeb.Domain.Enums;
 using GameWeb.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -20,6 +21,12 @@ public class CharacterConfiguration : IEntityTypeConfiguration<Character>
         // Garante que o nome seja único
         builder.HasIndex(c => c.Id, "IX_Character_Id").IsUnique();
         builder.HasIndex(c => c.Name, "IX_Character_Name").IsUnique();
+        
+        // Gender e Vocation são enums, então podemos armazená-los como strings ou inteiros
+        builder.Property(c => c.Gender)
+            .HasConversion(c => Enum.GetName(c), c => Enum.Parse<Gender>(c!));
+        builder.Property(c => c.Vocation)
+            .HasConversion(c => Enum.GetName(c), c => Enum.Parse<Vocation>(c!));
         
         // Configura propriedades complexas como Value Objects
         // Configura Position como um componente "owned"

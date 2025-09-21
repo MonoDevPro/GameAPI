@@ -53,6 +53,12 @@ public interface IIdentityService
     /// <returns>The result of the deletion operation.</returns>
     Task<Result> DeleteUserAsync(string userId, CancellationToken cancellationToken);
 
+
+    /// <summary>
+    /// Sets the active character for a user.
+    /// </summary>
+    Task<Result> SetActiveCharacterAsync(string userId, int characterId, CancellationToken cancellationToken);
+
     /// <summary>
     /// Gets the value of a specific claim for a user.
     /// </summary>

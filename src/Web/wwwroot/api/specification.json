@@ -11,97 +11,47 @@
         "tags": [
           "Characters"
         ],
-        "operationId": "PostApiCharacters",
-        "requestBody": {
-          "x-name": "command",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCharacterCommand"
-              }
-            }
+        "operationId": "CreateCharacter",
+        "parameters": [
+          {
+            "name": "Name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
           },
-          "required": true,
-          "x-position": 1
+          {
+            "name": "Gender",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Gender"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "Vocation",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Vocation"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
         },
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/api/Characters/{id}/select": {
-      "post": {
-        "tags": [
-          "Characters"
-        ],
-        "operationId": "PostApiCharactersSelect",
-        "parameters": [
+        "security": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 1
+            "JWT": []
           }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/api/Characters/{id}": {
-      "delete": {
-        "tags": [
-          "Characters"
-        ],
-        "operationId": "DeleteApiCharacters",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        }
-      },
-      "get": {
-        "tags": [
-          "Characters"
-        ],
-        "operationId": "GetApiCharacters",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        }
+        ]
       }
     },
     "/api/Characters/me": {
@@ -109,12 +59,150 @@
         "tags": [
           "Characters"
         ],
-        "operationId": "GetApiCharactersMe",
+        "operationId": "GetMyCharacters",
         "responses": {
           "200": {
             "description": ""
           }
-        }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/Characters/{id}": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "operationId": "SelectCharacter",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Characters"
+        ],
+        "operationId": "DeleteCharacter",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "operationId": "GetCharacterById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
+    "/api/UserManagement/characters/all": {
+      "get": {
+        "tags": [
+          "UserManagement"
+        ],
+        "operationId": "GetApiUserManagementCharactersAll",
+        "parameters": [
+          {
+            "name": "IsActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
       }
     },
     "/api/Users/register": {
@@ -514,21 +602,6 @@
   },
   "components": {
     "schemas": {
-      "CreateCharacterCommand": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "gender": {
-            "$ref": "#/components/schemas/Gender"
-          },
-          "vocation": {
-            "$ref": "#/components/schemas/Vocation"
-          }
-        }
-      },
       "Gender": {
         "type": "integer",
         "description": "",

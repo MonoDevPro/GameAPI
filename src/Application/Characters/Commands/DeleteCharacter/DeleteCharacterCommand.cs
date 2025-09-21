@@ -5,7 +5,7 @@ using GameWeb.Domain.Entities;
 
 namespace GameWeb.Application.Characters.Commands.DeleteCharacter;
 
-public record DeleteCharacterCommand(int CharacterId) : ICommand;
+public record DeleteCharacterCommand(int CharacterId) : ICommand<int>;
 
 public class DeleteCharacterCommandValidator : AbstractValidator<DeleteCharacterCommand>
 {
@@ -16,25 +16,19 @@ public class DeleteCharacterCommandValidator : AbstractValidator<DeleteCharacter
 }
 
 public class DeleteCharacterCommandHandler(IApplicationDbContext db, IUser user)
-    : IRequestHandler<DeleteCharacterCommand, Unit>
+    : IRequestHandler<DeleteCharacterCommand, int>
 {
-    public async Task<Unit> Handle(DeleteCharacterCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(DeleteCharacterCommand request, CancellationToken cancellationToken)
     {
-        if (user.Id is null)
-            throw new UnauthorizedAccessException();
-        
-        var ownerIsAdmin = user.Roles?.Contains(Roles.Administrator) ?? false;
-
         var character = await db.Characters.FirstOrDefaultAsync(
-            c => c.Id == request.CharacterId && (c.OwnerId == user.Id || ownerIsAdmin),
+            c => c.Id == request.CharacterId && (c.OwnerId == user.Id),
             cancellationToken);
         
         if (character is null)
             throw new NotFoundException(nameof(Character), request.CharacterId.ToString());
-
+        
         character.Deactivate();
-        character.Deselect();
 
-        return Unit.Value;
+        return character.Id;
     }
 }

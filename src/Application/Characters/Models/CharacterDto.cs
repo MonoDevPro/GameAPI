@@ -6,7 +6,6 @@ public record CharacterDto(
     string Gender,
     string Vocation,
     bool IsActive,
-    bool IsSelected,
     int HealthCurrent,
     int HealthMax,
     int AttackDamage,

@@ -79,6 +79,23 @@ public class IdentityService(
         return result.ToApplicationResult();
     }
     
+    // Implementação do novo método
+    public async Task<Result> SetActiveCharacterAsync(string userId, int characterId, CancellationToken cancellationToken)
+    {
+        var user = await userManager.FindByIdAsync(userId);
+        if (user is null)
+            return Result.Failure(["User not found."]);
+
+        // 1. Atualiza o banco de dados
+        user.ActiveCharacterId = characterId;
+        var updateResult = await userManager.UpdateAsync(user);
+
+        if (!updateResult.Succeeded)
+            return updateResult.ToApplicationResult();
+
+        return Result.Success();
+    }
+    
     /// <inheritdoc />
     public async Task<string?> GetClaimValueAsync(string userId, string claimType, CancellationToken cancellationToken = default)
     {

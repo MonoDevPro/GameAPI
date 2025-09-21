@@ -1,5 +1,6 @@
 using GameWeb.Application.Characters.Models;
 using GameWeb.Application.Common.Interfaces;
+using GameWeb.Application.Common.Mappings;
 using GameWeb.Domain.Entities;
 
 namespace GameWeb.Application.Characters.Queries.GetCharacterById;
@@ -22,10 +23,9 @@ public class GetCharacterByIdQueryHandler(IApplicationDbContext db, IUser user, 
         if (user.Id is null)
             throw new UnauthorizedAccessException();
 
-        var character = await db.Characters.FirstOrDefaultAsync(c => c.Id == request.Id && c.OwnerId == user.Id, cancellationToken);
-        if (character is null)
-            throw new NotFoundException(nameof(Character), request.Id.ToString());
-
-        return mapper.Map<CharacterDto>(character);
+        return await db.Characters
+                   .Where(c => c.Id == request.Id && c.OwnerId == user.Id)
+                   .ProjectToFirstOrDefaultAsync<CharacterDto>(mapper, cancellationToken)
+               ?? throw new NotFoundException(nameof(Character), request.Id.ToString());
     }
 }

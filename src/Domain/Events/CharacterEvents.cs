@@ -6,7 +6,5 @@ namespace GameWeb.Domain.Events;
 public abstract record CharacterEvent(int Id) : BaseEvent(Id);
 
 public sealed record CharacterCreatedEvent(int Id) : CharacterEvent(Id);
-public sealed record CharacterLoggedEvent(int Id) : CharacterEvent(Id);
-public sealed record CharacterLogoutEvent(int Id) : CharacterEvent(Id);
 public sealed record CharacterActivatedEvent(int Id) : CharacterEvent(Id);
 public sealed record CharacterDeactivatedEvent(int Id) : CharacterEvent(Id);
