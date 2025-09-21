@@ -30,9 +30,7 @@ public static class DependencyInjection
         });
         
         builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
-
         builder.Services.AddScoped<IUnitOfWork, EfUnitOfWork>();
-
 
         builder.Services.AddScoped<ApplicationDbContextInitialiser>();
 
@@ -45,6 +43,7 @@ public static class DependencyInjection
             .AddIdentityCore<ApplicationUser>()
             .AddRoles<IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddClaimsPrincipalFactory<CustomClaimsPrincipalFactory>()
             .AddApiEndpoints();
 
         builder.Services.AddSingleton(TimeProvider.System);
