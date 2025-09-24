@@ -2,8 +2,8 @@ using GameWeb.Application.Characters.Commands.CreateCharacter;
 using GameWeb.Application.Characters.Commands.SelectCharacter;
 using GameWeb.Application.Characters.Commands.DeleteCharacter;
 using GameWeb.Application.Characters.Queries.GetMyCharacters;
-using GameWeb.Application.Characters.Queries.GetCharacterById;
-using Microsoft.AspNetCore.Http.HttpResults;
+using GameWeb.Application.Characters.Queries.GetSelectedCharacter;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GameWeb.Web.Endpoints;
 
@@ -26,7 +26,7 @@ public class Characters : EndpointGroupBase
         group.MapDelete(DeleteCharacter, "{id}")
             .WithSummary("Delete a specific character.");
         
-        group.MapGet(GetCharacterById, "{id}")
+        group.MapGet(GetSelectedCharacter, "/selected")
             .WithSummary("Get character details by ID.");
     }
 
@@ -35,11 +35,10 @@ public class Characters : EndpointGroupBase
     /// <summary>
     /// Cria um novo personagem para o usuário logado.
     /// </summary>
-    public async Task<IResult> CreateCharacter(ISender sender, [AsParameters] CreateCharacterCommand command)
+    public async Task<IResult> CreateCharacter(ISender sender, [FromBody] CreateCharacterCommand command)
     {
         var result = await sender.Send(command);
-        
-        return TypedResults.Created($"/characters/{result.Id}", result);
+        return TypedResults.Created($"/characters/{result}", result);
     }
 
     /// <summary>
@@ -69,9 +68,9 @@ public class Characters : EndpointGroupBase
         return TypedResults.Ok(result);
     }
     
-    public async Task<IResult> GetCharacterById(ISender sender, int id)
+    public async Task<IResult> GetSelectedCharacter(ISender sender)
     {
-        var result = await sender.Send(new GetCharacterByIdQuery(id));
+        var result = await sender.Send(new GetSelectedCharacterQuery());
         return TypedResults.Ok(result);
     }
 }

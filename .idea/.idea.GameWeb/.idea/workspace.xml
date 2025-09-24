@@ -10,29 +10,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d96da80c-53c1-4fa0-b1b4-8f372cee1585" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Application/Common/Exceptions/NotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/ITokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Application/Management/Specifications/CharacterForPurgeSpec.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Identity/JwtOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Infrastructure/Identity/JwtTokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Web/Endpoints/Auth.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application/Auth/Commands/Register/RegisterCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Directory.Packages.props" beforeDir="false" afterPath="$PROJECT_DIR$/Directory.Packages.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/Admin/PurgeCharactersCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Management/Commands/PurgeCharacters/PurgeCharactersCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/Admin/GetAllCharactersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Management/Queries/GetAllCharacters/GetAllCharactersQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Specifications/AllCharactersAdminSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Management/Specifications/AllCharactersAdminSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Specifications/InactiveCharacterForPurgeSpec.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Events/CharacterEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Events/CharacterEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Infrastructure.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/AdminManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/AdminManagement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetCharacterById/GetCharacterByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetSelectedCharacter/GetSelectedCharacterQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Specifications/DeletableCharacterSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Specifications/DeletableCharacterSpec.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/ValidationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/ValidationBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Constants/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Constants/Roles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Enums/Gender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Enums/Gender.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Enums/Vocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Enums/Vocation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/EfRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/EfRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/AdminManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Management.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/Auth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Auth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/Users.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Users.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/appsettings.Development.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/config.nswag" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/config.nswag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,6 +151,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e096e6f12c5d6b49356bc34ff1ea08738f910c0929c9d717c9cba7f44288/EntityFrameworkQueryableExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f9342fb513b7b524925c79d9822cd3ecaf072c50231aa3b469875f4c2cdf/IdentityDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/infra/abbreviations.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Application/Auth/Commands/Register/RegisterCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Characters/EventHandlers/CharacterCreatedEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Exceptions/NotFoundException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Exceptions/ValidationException.cs" root0="FORCE_HIGHLIGHTING" />
@@ -155,8 +162,8 @@
     <setting file="file://$PROJECT_DIR$/src/Domain/Exceptions/ValidationException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/ValueObjects/Vector2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Infrastructure/Identity/JwtOptions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Web/Endpoints/AdminManagement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Web/Endpoints/Auth.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Web/Endpoints/Management.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/Game/GameAPI/src/Web/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/Game/GameAPI/src/Web/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/Game/GameAPI/src/Web/Program.cs" root0="SKIP_HIGHLIGHTING" />
@@ -182,7 +189,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "detached2",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -227,7 +234,7 @@
       <workItem from="1758332586339" duration="6402000" />
       <workItem from="1758388839733" duration="53022000" />
       <workItem from="1758681170199" duration="2834000" />
-      <workItem from="1758733718124" duration="2233000" />
+      <workItem from="1758733718124" duration="13528000" />
     </task>
     <task id="LOCAL-00001" summary="add .gitignore file for Visual Studio and related tools">
       <option name="closed" value="true" />
@@ -285,7 +292,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758484737816</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactor character management; rename queries and specifications for clarity; implement JWT authentication and token service">
+      <option name="closed" value="true" />
+      <created>1758736045802</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1758736045802</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update .gitignore to exclude Copilot migration and configuration files">
+      <option name="closed" value="true" />
+      <created>1758736188736</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1758736188736</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,38 +317,8 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="12ff00ba-fa06-44ef-ba95-2e458b8594b3" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
-        <entry key="12ff00ba-fa06-44ef-ba95-2e458b8594b3">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/home/filipe/GameAPI/src/Application" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-            </State>
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -334,7 +327,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -355,7 +348,9 @@
     <MESSAGE value="refactor CreateCharacterCommandValidator to include asynchronous uniqueness check for character names" />
     <MESSAGE value="refactor character commands and queries; implement active character management and enhance specifications" />
     <MESSAGE value="implement character specifications for querying and validation; introduce repository pattern for data access" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement character specifications for querying and validation; introduce repository pattern for data access" />
+    <MESSAGE value="refactor character management; rename queries and specifications for clarity; implement JWT authentication and token service" />
+    <MESSAGE value="update .gitignore to exclude Copilot migration and configuration files" />
+    <option name="LAST_COMMIT_MESSAGE" value="update .gitignore to exclude Copilot migration and configuration files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

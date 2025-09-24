@@ -1,4 +1,4 @@
-using GameWeb.Application.Characters.Models;
+using System.Text.RegularExpressions;
 using GameWeb.Application.Characters.Specifications;
 using GameWeb.Application.Common.Interfaces;
 using GameWeb.Domain.Entities;
@@ -8,37 +8,66 @@ using GameWeb.Domain.ValueObjects;
 
 namespace GameWeb.Application.Characters.Commands.CreateCharacter;
 
-public record CreateCharacterCommand(string Name, Gender Gender, Vocation Vocation) : ICommand<CharacterDto>;
+public record CreateCharacterCommand(string Name, Gender Gender, Vocation Vocation) : ICommand<int>;
 
-public class CreateCharacterCommandValidator : AbstractValidator<CreateCharacterCommand>
+public partial class CreateCharacterCommandValidator : AbstractValidator<CreateCharacterCommand>
 {
+    [GeneratedRegex("^[a-zA-Z][a-zA-Z0-9_]*$")] private static partial Regex NameRegex();
+    private const int MaxCharactersPerUser = 3;
+    private const int MinNameLength = 3;
+    private const int MaxNameLength = 20;
+    
+    // Manter as dependências como campos privados para serem acedidas pelos métodos
+    private readonly IRepository<Character> _characterRepo;
+    private readonly string _userId;
+
     public CreateCharacterCommandValidator(IRepository<Character> characterRepo, IUser user)
     {
+        _userId = Guard.Against.Null(user.Id, nameof(user.Id));
+        _characterRepo = characterRepo;
+
         RuleFor(x => x.Name)
-            .NotEmpty()
-            .MinimumLength(3)
-            .MaximumLength(20)
-            .MustAsync(async (name, cancellationToken) => 
-            {
-                // Usa a nova especificação para a verificação. A intenção fica muito clara.
-                var spec = new CharacterByNameSpec(name);
-                return !await characterRepo.AnyAsync(spec, cancellationToken);
-            })
-            .WithMessage("Character name already exists.");
+            .NotEmpty().WithMessage("Character name is required.")
+            .MinimumLength(MinNameLength).WithMessage($"Character name must be at least {MinNameLength} characters long.")
+            .MaximumLength(MaxNameLength).WithMessage($"Character name must not exceed {MaxNameLength} characters.")
+            .Matches(NameRegex()).WithMessage("Name must start with a letter and can only contain letters, numbers, and underscores.")
+            .MustAsync(BeUniqueNameAsync).WithMessage("Character name already exists.");
         
-        RuleFor(x => x.Gender).IsInEnum().NotEqual(Gender.None);
-        RuleFor(x => x.Vocation).IsInEnum().NotEqual(Vocation.None);
+        RuleFor(x => x.Gender).IsInEnum().NotEqual(Gender.None).WithMessage("A valid gender must be selected.");
+        
+        RuleFor(x => x.Vocation).IsInEnum().NotEqual(Vocation.None).WithMessage("A valid vocation must be selected.");
+        
+        RuleFor(x => x)
+            .MustAsync(BeWithinCharacterLimitAsync).WithMessage("You have reached the maximum number of characters allowed (3).");
+    }
+
+    /// <summary>
+    /// Verifica se o nome do personagem já existe na base de dados.
+    /// </summary>
+    private async Task<bool> BeUniqueNameAsync(string name, CancellationToken cancellationToken)
+    {
+        var spec = new CharacterByNameSpec(name);
+        return !await _characterRepo.AnyBySpecAsync(spec, cancellationToken);
+    }
+
+    private async Task<bool> BeWithinCharacterLimitAsync(CreateCharacterCommand command, CancellationToken cancellationToken)
+    {
+        var spec = new CharactersByOwnerSpec(_userId);
+        var count = await _characterRepo.CountBySpecAsync(spec, cancellationToken);
+        return count < 3; // Limite de 3 personagens
     }
 }
 
 public class CreateCharacterCommandHandler(
     IRepository<Character> characterRepo, 
-    IUser user, 
-    IMapper mapper)
-    : IRequestHandler<CreateCharacterCommand, CharacterDto>
+    IUnitOfWork uow,
+    IUser user)
+    : IRequestHandler<CreateCharacterCommand, int>
 {
-    public Task<CharacterDto> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
+    public async Task<int> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
     {
+        Guard.Against.Null(user.Id, nameof(user.Id));
+        
         var character = new Character
         {
             Name = request.Name, 
@@ -58,9 +87,8 @@ public class CreateCharacterCommandHandler(
         character.AddDomainEvent(new CharacterCreatedEvent(character.Id));
         
         characterRepo.Add(character);
+        await uow.SaveChangesAsync(cancellationToken);
         
-        
-        // O UnitOfWorkBehavior irá comitar a transação.
-        return Task.FromResult(mapper.Map<CharacterDto>(character));
+        return character.Id;
     }
 }

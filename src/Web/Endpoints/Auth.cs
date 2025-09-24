@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using GameWeb.Application.Auth.Commands.Register;
 using GameWeb.Application.Common.Interfaces;
 using GameWeb.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
@@ -33,18 +34,12 @@ public class Auth : EndpointGroupBase
 
     private async Task<IResult> Register(
         RegisterRequest request,
-        IIdentityService identity,
-        ITokenService tokenService,
+        ISender sender,
         CancellationToken ct)
     {
-        var (result, userId) = await identity.CreateUserAsync(request.UserName, request.Email, request.Password, ct);
-        if (!result.Succeeded)
-        {
-            return TypedResults.ValidationProblem(new Dictionary<string, string[]> { { "register", result.Errors.ToArray() } });
-        }
-
-        var accessToken = await tokenService.IssueAccessTokenAsync(userId, ct);
-        return TypedResults.Ok(new AuthResponse(accessToken));
+        var command = new RegisterCommand(request.UserName, request.Email, request.Password);
+        var result = await sender.Send(command, ct);
+        return TypedResults.Ok(result);
     }
 
     public record LoginRequest(string UserNameOrEmail, string Password);
@@ -58,19 +53,13 @@ public class Auth : EndpointGroupBase
     {
         ApplicationUser? user = await userManager.FindByNameAsync(request.UserNameOrEmail);
         if (user is null)
-        {
             user = await userManager.FindByEmailAsync(request.UserNameOrEmail);
-        }
         if (user is null)
-        {
             return TypedResults.Unauthorized();
-        }
 
         var signIn = await signInManager.CheckPasswordSignInAsync(user, request.Password, lockoutOnFailure: false);
         if (!signIn.Succeeded)
-        {
             return TypedResults.Unauthorized();
-        }
 
         var token = await tokenService.IssueAccessTokenAsync(user.Id, ct);
         return TypedResults.Ok(new AuthResponse(token));
@@ -101,9 +90,7 @@ public class Auth : EndpointGroupBase
     {
         var userId = user.FindFirstValue(ClaimTypes.NameIdentifier);
         if (string.IsNullOrEmpty(userId))
-        {
             return TypedResults.Unauthorized();
-        }
 
         var token = await tokenService.IssueAccessTokenAsync(userId, ct);
         return TypedResults.Ok(new AuthResponse(token));

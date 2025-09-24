@@ -15,7 +15,8 @@ public interface IRepository<T> where T : BaseEntity
     Task<PaginatedList<TResult>> ListBySpecAsync<TResult>(ISpecification<T> spec, int pageNumber, int pageSize, CancellationToken cancellationToken = default);
     
     // --- NOVO MÉTODO PARA VERIFICAÇÃO DE EXISTÊNCIA ---
-    Task<bool> AnyAsync(ISpecification<T> spec, CancellationToken cancellationToken = default);
+    Task<bool> AnyBySpecAsync(ISpecification<T> spec, CancellationToken cancellationToken = default);
+    Task<int> CountBySpecAsync(ISpecification<T> spec, CancellationToken cancellationToken = default);
     
     // --- MÉTODOS DE ESCRITA ---
     void Add(T entity);

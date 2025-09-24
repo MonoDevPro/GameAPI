@@ -1,6 +1,4 @@
-﻿using GameWeb.Infrastructure.Identity;
-
-namespace GameWeb.Web.Endpoints;
+﻿namespace GameWeb.Web.Endpoints;
 
 public class Users : EndpointGroupBase
 {

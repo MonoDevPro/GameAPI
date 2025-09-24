@@ -1,4 +1,6 @@
-﻿namespace GameWeb.Application.Common.Behaviours;
+﻿using ValidationException = GameWeb.Application.Common.Exceptions.ValidationException; // Adicione este using
+
+namespace GameWeb.Application.Common.Behaviours;
 
 public class ValidationBehaviour<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> validators)
     : IPipelineBehavior<TRequest, TResponse>

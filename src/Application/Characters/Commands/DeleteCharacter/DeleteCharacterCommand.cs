@@ -14,11 +14,12 @@ public class DeleteCharacterCommandHandler(
 {
     public async Task<int> Handle(DeleteCharacterCommand request, CancellationToken cancellationToken)
     {
-        var spec = new DeletableCharacterSpec(request.CharacterId, user);
-        var character = await characterRepo.GetBySpecAsync(spec, cancellationToken);
+        Guard.Against.Null(user.Id, nameof(user.Id));
         
-        if (character is null)
-            throw new NotFoundException(nameof(Character), request.CharacterId.ToString());
+        var spec = new DeletableCharacterSpec(request.CharacterId, user);
+        
+        var character = Guard.Against.Null(await characterRepo.GetBySpecAsync(spec, cancellationToken), nameof(Character), 
+            $"Character with ID {request.CharacterId} not found or you don't have permission to delete it.", () => new NotFoundException(request.CharacterId.ToString(), nameof(Character)));
         
         character.IsActive = false;
         character.AddDomainEvent(new CharacterDeactivatedEvent(character.Id));

@@ -1,6 +1,6 @@
 namespace GameWeb.Domain.Enums;
 
-public enum Gender : int
+public enum Gender
 {
     None, 
     Male, 

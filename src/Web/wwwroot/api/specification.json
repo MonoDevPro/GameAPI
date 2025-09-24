@@ -6,53 +6,6 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/api/AdminManagement/characters/all": {
-      "get": {
-        "tags": [
-          "AdminManagement"
-        ],
-        "operationId": "GetApiAdminManagementCharactersAll",
-        "parameters": [
-          {
-            "name": "IsActive",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 3
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
     "/api/Auth/register": {
       "post": {
         "tags": [
@@ -145,36 +98,18 @@
           "Characters"
         ],
         "operationId": "CreateCharacter",
-        "parameters": [
-          {
-            "name": "Name",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCharacterCommand"
+              }
+            }
           },
-          {
-            "name": "Gender",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Gender"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "Vocation",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "$ref": "#/components/schemas/Vocation"
-            },
-            "x-position": 3
-          }
-        ],
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": ""
@@ -261,20 +196,86 @@
             "Bearer": []
           }
         ]
-      },
+      }
+    },
+    "/api/Characters/selected": {
       "get": {
         "tags": [
           "Characters"
         ],
-        "operationId": "GetCharacterById",
+        "operationId": "GetSelectedCharacter",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/Management/characters/all": {
+      "get": {
+        "tags": [
+          "Management"
+        ],
+        "operationId": "GetAllCharacters",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "IsActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/Management/characters/purge": {
+      "delete": {
+        "tags": [
+          "Management"
+        ],
+        "operationId": "PurgeCharacters",
+        "parameters": [
+          {
+            "name": "isActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
             },
             "x-position": 1
           }
@@ -318,6 +319,21 @@
           },
           "password": {
             "type": "string"
+          }
+        }
+      },
+      "CreateCharacterCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "vocation": {
+            "$ref": "#/components/schemas/Vocation"
           }
         }
       },

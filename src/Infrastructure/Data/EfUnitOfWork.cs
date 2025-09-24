@@ -9,6 +9,11 @@ public class EfUnitOfWork(ApplicationDbContext context, ILogger<EfUnitOfWork> lo
     private readonly ApplicationDbContext _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly ILogger<EfUnitOfWork> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     private IDbContextTransaction? _currentTransaction;
+    
+    public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        return _context.SaveChangesAsync(cancellationToken);
+    }
 
     // -------------------------
     // Transaction support
@@ -37,7 +42,7 @@ public class EfUnitOfWork(ApplicationDbContext context, ILogger<EfUnitOfWork> lo
 
         try
         {
-            await _context.SaveChangesAsync(cancellationToken);
+            //await _context.SaveChangesAsync(cancellationToken);
             await _currentTransaction.CommitAsync(cancellationToken);
             _logger.LogDebug("EfUnitOfWork: transaction committed.");
         }

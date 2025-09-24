@@ -13,7 +13,5 @@ public class DeletableCharacterSpec : BaseSpecification<Character>
     public DeletableCharacterSpec(int characterId, IUser user)
         : base(c => c.Id == characterId && (c.OwnerId == user.Id || (user.Roles != null && user.Roles.Contains(Roles.Administrator))))
     {
-        // Como esta especificação será usada num comando que altera a entidade,
-        // NÃO usamos AsNoTracking.
     }
 }

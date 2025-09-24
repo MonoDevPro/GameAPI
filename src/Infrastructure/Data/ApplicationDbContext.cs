@@ -22,6 +22,13 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
             .IsRequired()
             .OnDelete(DeleteBehavior.Restrict);
         
+        builder.Entity<ApplicationUser>()
+            .HasOne(u => u.ActiveCharacter) // Um utilizador tem um personagem ativo (opcional)
+            .WithMany() // Um personagem não precisa de ter uma lista de utilizadores que o têm como ativo
+            .HasForeignKey(u => u.ActiveCharacterId) // A chave estrangeira está em ApplicationUser
+            .IsRequired(false) // A FK é opcional (pode ser nula)
+            .OnDelete(DeleteBehavior.SetNull); // A magia acontece aqui!
+        
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }

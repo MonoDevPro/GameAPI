@@ -120,11 +120,14 @@ public class EfRepository<T>(ApplicationDbContext context, IMapper mapper) : IRe
         return await projected.ToListAsync(cancellationToken);
     }
     
-    // --- IMPLEMENTAÇÃO DO NOVO MÉTODO ---
-    public async Task<bool> AnyAsync(ISpecification<T> spec, CancellationToken cancellationToken = default)
+    public async Task<bool> AnyBySpecAsync(ISpecification<T> spec, CancellationToken cancellationToken = default)
     {
-        // Reutilizamos a query de contagem otimizada para a verificação de existência.
         return await ApplySpecificationForCount(spec).AnyAsync(cancellationToken);
+    }
+
+    public async Task<int> CountBySpecAsync(ISpecification<T> spec, CancellationToken cancellationToken = default)
+    {
+        return await ApplySpecificationForCount(spec).CountAsync(cancellationToken: cancellationToken);
     }
 
     // --- Paginated methods -----------------------------------------------

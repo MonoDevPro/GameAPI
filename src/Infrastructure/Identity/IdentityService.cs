@@ -15,8 +15,15 @@ public class IdentityService(
     IAuthorizationService authorizationService)
     : IIdentityService
 {
-    // Nota: O uso de primary constructors já injeta e atribui as dependências.
-    // Elas estão disponíveis como 'userManager', 'userClaimsPrincipalFactory', etc.
+    public async Task<bool> IsUserNameInUseAsync(string userName, CancellationToken cancellationToken)
+    {
+        return await userManager.FindByNameAsync(userName) is not null;
+    }
+
+    public async Task<bool> IsEmailInUseAsync(string email, CancellationToken cancellationToken)
+    {
+        return await userManager.FindByEmailAsync(email) is not null;
+    }
 
     /// <inheritdoc />
     public async Task<string?> GetUserNameAsync(string userId, CancellationToken cancellationToken = default)
@@ -95,7 +102,13 @@ public class IdentityService(
 
         return Result.Success();
     }
-    
+
+    public async Task<int?> GetActiveCharacterIdAsync(string userId, CancellationToken cancellationToken)
+    {
+        var user = await userManager.FindByIdAsync(userId);
+        return user?.ActiveCharacterId;
+    }
+
     /// <inheritdoc />
     public async Task<string?> GetClaimValueAsync(string userId, string claimType, CancellationToken cancellationToken = default)
     {

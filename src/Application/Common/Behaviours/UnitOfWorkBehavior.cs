@@ -28,7 +28,8 @@ public class UnitOfWorkBehavior<TRequest, TResponse>(
 
             if (!weStartedTransaction)
                 return response;
-
+            
+            await uow.SaveChangesAsync(cancellationToken); 
             await uow.CommitTransactionAsync(cancellationToken);
             logger.LogInformation("Transactional unit of work committed for {Request}", typeof(TRequest).Name);
 

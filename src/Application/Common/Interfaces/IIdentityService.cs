@@ -10,6 +10,16 @@ namespace GameWeb.Application.Common.Interfaces;
 public interface IIdentityService
 {
     /// <summary>
+    /// Verifica se um nome de utilizador já está em uso.
+    /// </summary>
+    Task<bool> IsUserNameInUseAsync(string userName, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Verifica se um endereço de e-mail já está em uso.
+    /// </summary>
+    Task<bool> IsEmailInUseAsync(string email, CancellationToken cancellationToken);
+    
+    /// <summary>
     /// Gets the username for a specified user ID.
     /// </summary>
     /// <param name="userId">The user ID.</param>
@@ -59,6 +69,14 @@ public interface IIdentityService
     /// </summary>
     Task<Result> SetActiveCharacterAsync(string userId, int characterId, CancellationToken cancellationToken);
 
+    /// <summary>
+    /// Obtém o ID do personagem ativo para um utilizador específico.
+    /// </summary>
+    /// <param name="userId">O ID do utilizador.</param>
+    /// <param name="cancellationToken">Token de cancelamento.</param>
+    /// <returns>O ID do personagem ativo, ou nulo se não houver nenhum selecionado.</returns>
+    Task<int?> GetActiveCharacterIdAsync(string userId, CancellationToken cancellationToken);
+    
     /// <summary>
     /// Gets the value of a specific claim for a user.
     /// </summary>

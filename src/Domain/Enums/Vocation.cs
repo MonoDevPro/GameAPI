@@ -3,22 +3,22 @@ namespace GameWeb.Domain.Enums;
 /// <summary>
 /// Represents the different character classes available in the game
 /// </summary>
-public enum Vocation : int
+public enum Vocation
 {
-    None = 0,
+    None,
     
     /// <summary>
     /// Warrior class - melee combat specialist
     /// </summary>
-    Warrior = 1,
+    Warrior,
 
     /// <summary>
     /// Mage class - magic damage dealer
     /// </summary>
-    Mage = 2,
+    Mage,
 
     /// <summary>
     /// Archer class - ranged physical damage dealer
     /// </summary>
-    Archer = 3
+    Archer
 }
