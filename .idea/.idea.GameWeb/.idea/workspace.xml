@@ -10,36 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d96da80c-53c1-4fa0-b1b4-8f372cee1585" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Application/Auth/Commands/Register/RegisterCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameWeb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetCharacterById/GetCharacterByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetSelectedCharacter/GetSelectedCharacterQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Specifications/DeletableCharacterSpec.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Specifications/DeletableCharacterSpec.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/UnitOfWorkBehavior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Behaviours/ValidationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Behaviours/ValidationBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IIdentityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Constants/Roles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Constants/Roles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Enums/Gender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Enums/Gender.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Enums/Vocation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Enums/Vocation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/ApplicationDbContextInitialiser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/EfRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/EfRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Data/EfUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Infrastructure/Identity/IdentityService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/AdminManagement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Management.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/Auth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Auth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Characters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/Endpoints/Users.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Endpoints/Users.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/config.nswag" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/config.nswag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/wwwroot/api/specification.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Infrastructure/CustomExceptionHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +205,7 @@
       <workItem from="1758332586339" duration="6402000" />
       <workItem from="1758388839733" duration="53022000" />
       <workItem from="1758681170199" duration="2834000" />
-      <workItem from="1758733718124" duration="13528000" />
+      <workItem from="1758733718124" duration="13843000" />
     </task>
     <task id="LOCAL-00001" summary="add .gitignore file for Visual Studio and related tools">
       <option name="closed" value="true" />
@@ -308,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758736188736</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactor character management; implement active character handling and enhance command/query specifications">
+      <option name="closed" value="true" />
+      <created>1758748487321</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1758748487321</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +329,8 @@
     <MESSAGE value="implement character specifications for querying and validation; introduce repository pattern for data access" />
     <MESSAGE value="refactor character management; rename queries and specifications for clarity; implement JWT authentication and token service" />
     <MESSAGE value="update .gitignore to exclude Copilot migration and configuration files" />
-    <option name="LAST_COMMIT_MESSAGE" value="update .gitignore to exclude Copilot migration and configuration files" />
+    <MESSAGE value="refactor character management; implement active character handling and enhance command/query specifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor character management; implement active character handling and enhance command/query specifications" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
