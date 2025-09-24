@@ -1,7 +1,6 @@
 using GameWeb.Application.Characters.Commands.CreateCharacter;
 using GameWeb.Application.Characters.Commands.SelectCharacter;
 using GameWeb.Application.Characters.Commands.DeleteCharacter;
-using GameWeb.Application.Characters.Queries.Admin;
 using GameWeb.Application.Characters.Queries.GetMyCharacters;
 using GameWeb.Application.Characters.Queries.GetCharacterById;
 using Microsoft.AspNetCore.Http.HttpResults;

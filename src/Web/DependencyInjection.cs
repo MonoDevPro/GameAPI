@@ -21,6 +21,7 @@ public static class DependencyInjection
             .AddDbContextCheck<ApplicationDbContext>();
 
         builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+        builder.Services.AddProblemDetails();
 
         // Customise default API behaviour
         builder.Services.Configure<ApiBehaviorOptions>(options =>
@@ -28,20 +29,31 @@ public static class DependencyInjection
 
         builder.Services.AddEndpointsApiExplorer();
 
+        // CORS: adjust origins as needed
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(policy =>
+                policy.AllowAnyOrigin()
+                      .AllowAnyHeader()
+                      .AllowAnyMethod());
+        });
+
         builder.Services.AddOpenApiDocument((configure, sp) =>
         {
             configure.Title = "GameWeb API";
 
-            // Add JWT
-            configure.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
+            // JWT Bearer security
+            configure.AddSecurity("Bearer", Enumerable.Empty<string>(), new OpenApiSecurityScheme
             {
-                Type = OpenApiSecuritySchemeType.ApiKey,
+                Type = OpenApiSecuritySchemeType.Http,
+                Scheme = "Bearer",
+                BearerFormat = "JWT",
                 Name = "Authorization",
                 In = OpenApiSecurityApiKeyLocation.Header,
-                Description = "Type into the textbox: Bearer {your JWT token}."
+                Description = "Enter: Bearer {your JWT token}"
             });
 
-            configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
+            configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("Bearer"));
         });
     }
 

@@ -1,4 +1,4 @@
-using GameWeb.Application.Characters.Queries.Admin;
+using GameWeb.Application.Management.Queries.GetAllCharacters;
 using GameWeb.Domain.Constants;
 
 namespace GameWeb.Web.Endpoints;

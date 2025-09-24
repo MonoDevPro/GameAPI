@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 using GameWeb.Application.Common.Interfaces;
 using GameWeb.Domain.Entities;
 
-namespace GameWeb.Application.Characters.Specifications;
+namespace GameWeb.Application.Management.Specifications;
 
 /// <summary>
 /// Obtém todos os personagens para um ecrã de administração, com suporte

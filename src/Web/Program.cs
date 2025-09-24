@@ -34,8 +34,15 @@ app.UseSwaggerUi(settings =>
     settings.DocumentPath = "/api/specification.json";
 });
 
+// Use centralized exception handling registered via IExceptionHandler
+app.UseExceptionHandler();
 
-app.UseExceptionHandler(options => { });
+// CORS
+app.UseCors();
+
+// Authentication/Authorization for protected endpoints
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Map("/", () => Results.Redirect("/api"));
 

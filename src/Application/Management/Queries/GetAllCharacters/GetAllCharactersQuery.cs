@@ -1,12 +1,12 @@
 using GameWeb.Application.Characters.Models;
-using GameWeb.Application.Characters.Specifications;
 using GameWeb.Application.Common.Interfaces;
 using GameWeb.Application.Common.Models;
 using GameWeb.Application.Common.Security;
+using GameWeb.Application.Management.Specifications;
 using GameWeb.Domain.Constants;
 using GameWeb.Domain.Entities;
 
-namespace GameWeb.Application.Characters.Queries.Admin;
+namespace GameWeb.Application.Management.Queries.GetAllCharacters;
 
 [Authorize(Roles = Roles.Administrator)]
 public record GetAllCharactersQuery(bool? IsActive = null, int PageNumber = 1, int PageSize = 10) 

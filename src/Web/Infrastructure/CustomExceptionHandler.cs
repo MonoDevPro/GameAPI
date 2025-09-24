@@ -1,6 +1,7 @@
 ﻿using GameWeb.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using NotFoundException = GameWeb.Application.Common.Exceptions.NotFoundException;
 
 namespace GameWeb.Web.Infrastructure;
 
