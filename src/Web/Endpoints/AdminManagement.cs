@@ -3,7 +3,7 @@ using GameWeb.Domain.Constants;
 
 namespace GameWeb.Web.Endpoints;
 
-public class UserManagement : EndpointGroupBase
+public class AdminManagement : EndpointGroupBase
 {
     public override void Map(RouteGroupBuilder group)
     {

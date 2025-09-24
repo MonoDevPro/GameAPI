@@ -11,7 +11,7 @@ public class CharacterByNameSpec : BaseSpecification<Character>
 {
     public CharacterByNameSpec(string characterName)
         // O critério compara o valor do Value Object 'Name' com a string fornecida.
-        : base(c => c.Name.Value == characterName)
+        : base(c => c.Name == characterName)
     {
         // Para uma verificação de existência ('AnyAsync'), não precisamos de tracking.
         AsNoTrackingEnabled();

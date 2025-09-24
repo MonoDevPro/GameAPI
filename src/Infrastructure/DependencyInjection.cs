@@ -18,6 +18,8 @@ public static class DependencyInjection
     {
         var connectionString = builder.Configuration.GetConnectionString("GameWebDb");
         Guard.Against.Null(connectionString, message: "Connection string 'GameWebDb' not found.");
+        
+        builder.Services.AddSingleton(TimeProvider.System);
 
         builder.Services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         builder.Services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
@@ -46,7 +48,6 @@ public static class DependencyInjection
             .AddClaimsPrincipalFactory<CustomClaimsPrincipalFactory>()
             .AddApiEndpoints();
 
-        builder.Services.AddSingleton(TimeProvider.System);
         builder.Services.AddTransient<IIdentityService, IdentityService>();
 
         builder.Services.AddAuthorization(options =>

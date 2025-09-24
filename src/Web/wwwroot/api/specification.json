@@ -6,6 +6,53 @@
     "version": "1.0.0"
   },
   "paths": {
+    "/api/AdminManagement/characters/all": {
+      "get": {
+        "tags": [
+          "AdminManagement"
+        ],
+        "operationId": "GetApiAdminManagementCharactersAll",
+        "parameters": [
+          {
+            "name": "IsActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
+    },
     "/api/Characters": {
       "post": {
         "tags": [
@@ -144,53 +191,6 @@
               "format": "int32"
             },
             "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "JWT": []
-          }
-        ]
-      }
-    },
-    "/api/UserManagement/characters/all": {
-      "get": {
-        "tags": [
-          "UserManagement"
-        ],
-        "operationId": "GetApiUserManagementCharactersAll",
-        "parameters": [
-          {
-            "name": "IsActive",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
-            "name": "PageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 2
-          },
-          {
-            "name": "PageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "x-position": 3
           }
         ],
         "responses": {

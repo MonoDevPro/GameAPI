@@ -1,6 +1,7 @@
 using GameWeb.Application.Characters.Specifications;
 using GameWeb.Application.Common.Interfaces;
 using GameWeb.Domain.Entities;
+using GameWeb.Domain.Events;
 
 namespace GameWeb.Application.Characters.Commands.DeleteCharacter;
 
@@ -19,9 +20,10 @@ public class DeleteCharacterCommandHandler(
         if (character is null)
             throw new NotFoundException(nameof(Character), request.CharacterId.ToString());
         
-        character.Deactivate();
-
-        // O UnitOfWorkBehavior salvará a entidade modificada.
+        character.IsActive = false;
+        character.AddDomainEvent(new CharacterDeactivatedEvent(character.Id));
+        characterRepo.Update(character);
+        
         return character.Id;
     }
 }

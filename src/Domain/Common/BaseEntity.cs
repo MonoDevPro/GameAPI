@@ -8,36 +8,11 @@ namespace GameWeb.Domain.Common;
 public abstract class BaseEntity
 {
     public int Id { get; private set; } // identidade
-    
-    public bool IsActive { get; private set; } = true; // ativo ou inativo
+    public bool IsActive { get; set; } = true; // ativo ou inativo
     
     private readonly List<BaseEvent> _domainEvents = []; // eventos de domínio :contentReference[oaicite:9]{index=9}
     [NotMapped]
     public IReadOnlyCollection<BaseEvent> DomainEvents => _domainEvents;
-
-    // Construtor sem parâmetros é necessário para o EF Core
-    protected BaseEntity() { }
-
-    protected BaseEntity(int id)
-    {
-        Id = id;
-    }
-    
-    public virtual void Deactivate()
-    {
-        if (!IsActive)
-            return;
-
-        IsActive = false;
-    }
-    
-    public virtual void Activate()
-    {
-        if (IsActive) 
-            return;
-
-        IsActive = true;
-    }
 
     public void AddDomainEvent(BaseEvent domainEventItem)
         => _domainEvents.Add(domainEventItem);
