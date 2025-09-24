@@ -9,7 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d96da80c-53c1-4fa0-b1b4-8f372cee1585" name="Changes" comment="" />
+    <list default="true" id="d96da80c-53c1-4fa0-b1b4-8f372cee1585" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/CreateCharacter/CreateCharacterCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/DeleteCharacter/DeleteCharacterCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Commands/SelectCharacter/SelectCharacterCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetMyCharacters/GetMyCharactersQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Characters/Queries/GetSelectedCharacter/GetSelectedCharacterQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Characters/Queries/GetSelectedCharacter/GetSelectedCharacterQuery.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +134,6 @@
     <setting file="file://$PROJECT_DIR$/src/Application/Common/Interfaces/IUnityOfWork.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Constants/Policies.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/Enums/Gender.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Domain/Exceptions/ValidationException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Domain/ValueObjects/Vector2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Infrastructure/Identity/JwtOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Web/Endpoints/Auth.cs" root0="FORCE_HIGHLIGHTING" />
@@ -141,6 +146,13 @@
     <setting file="mock:///home/filipe/Game/GameAPI/src/Web/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/Game/GameAPI/src/Web/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/filipe/Game/GameAPI/src/Web/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -203,7 +215,7 @@
       <workItem from="1758332586339" duration="6402000" />
       <workItem from="1758388839733" duration="53022000" />
       <workItem from="1758681170199" duration="2834000" />
-      <workItem from="1758733718124" duration="14398000" />
+      <workItem from="1758733718124" duration="14855000" />
     </task>
     <task id="LOCAL-00001" summary="add .gitignore file for Visual Studio and related tools">
       <option name="closed" value="true" />
@@ -293,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758748660434</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update workspace.xml for better task management; adjust local tasks counter and last commit message">
+      <option name="closed" value="true" />
+      <created>1758749330018</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1758749330018</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +357,8 @@
     <MESSAGE value="update .gitignore to exclude Copilot migration and configuration files" />
     <MESSAGE value="refactor character management; implement active character handling and enhance command/query specifications" />
     <MESSAGE value="remove unused HandleNoCharacterSelectedException method from CustomExceptionHandler; update workspace.xml for better task management" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unused HandleNoCharacterSelectedException method from CustomExceptionHandler; update workspace.xml for better task management" />
+    <MESSAGE value="update workspace.xml for better task management; adjust local tasks counter and last commit message" />
+    <option name="LAST_COMMIT_MESSAGE" value="update workspace.xml for better task management; adjust local tasks counter and last commit message" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -15,10 +15,8 @@ public class GetSelectedCharacterQueryHandler(
 {
     public async Task<CharacterDto?> Handle(GetSelectedCharacterQuery request, CancellationToken cancellationToken)
     {
-        var userId = Guard.Against.Null(user.Id, nameof(user.Id));
-        
         // 1. Usa a abstração para obter o ID do personagem ativo.
-        var activeCharacterId = await identityService.GetActiveCharacterIdAsync(userId, cancellationToken);
+        var activeCharacterId = await identityService.GetActiveCharacterIdAsync(user.Id!, cancellationToken);
 
         if (activeCharacterId is null)
             return null;

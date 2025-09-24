@@ -14,8 +14,6 @@ public class DeleteCharacterCommandHandler(
 {
     public async Task<int> Handle(DeleteCharacterCommand request, CancellationToken cancellationToken)
     {
-        Guard.Against.Null(user.Id, nameof(user.Id));
-        
         var spec = new DeletableCharacterSpec(request.CharacterId, user);
         
         var character = Guard.Against.Null(await characterRepo.GetBySpecAsync(spec, cancellationToken), nameof(Character), 
@@ -28,4 +26,3 @@ public class DeleteCharacterCommandHandler(
         return character.Id;
     }
 }
-

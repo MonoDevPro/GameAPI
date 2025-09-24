@@ -23,7 +23,7 @@ public partial class CreateCharacterCommandValidator : AbstractValidator<CreateC
 
     public CreateCharacterCommandValidator(IRepository<Character> characterRepo, IUser user)
     {
-        _userId = Guard.Against.Null(user.Id, nameof(user.Id));
+        _userId = user.Id!;
         _characterRepo = characterRepo;
 
         RuleFor(x => x.Name)
@@ -65,9 +65,7 @@ public class CreateCharacterCommandHandler(
     : IRequestHandler<CreateCharacterCommand, int>
 {
     public async Task<int> Handle(CreateCharacterCommand request, CancellationToken cancellationToken)
-    {
-        Guard.Against.Null(user.Id, nameof(user.Id));
-        
+    {        
         var character = new Character
         {
             Name = request.Name, 

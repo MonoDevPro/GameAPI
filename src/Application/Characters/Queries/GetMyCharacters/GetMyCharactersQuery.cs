@@ -14,9 +14,7 @@ public class GetMyCharactersQueryHandler(
 {
     public async Task<List<CharacterDto>> Handle(GetMyCharactersQuery request, CancellationToken cancellationToken)
     {
-        var userId = Guard.Against.Null(user.Id, nameof(user.Id));
-        
-        var spec = new CharactersByOwnerSpec(userId);
+        var spec = new CharactersByOwnerSpec(user.Id!);
         return await characterRepo.ListBySpecAsync<CharacterDto>(spec, cancellationToken);
     }
 }
